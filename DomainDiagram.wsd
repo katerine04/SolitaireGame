@@ -1,0 +1,27 @@
+@startuml Domain DiagramBorderColor
+scale 1920*1080
+
+object Card
+object Player
+object Mallet
+object CardNumber
+object WildCard
+object Turn
+object Goal
+object Game
+
+
+Game *-down->Turn
+Game *-down-> Player
+Game *-down-> Card
+
+CardNumber -down-|> Card
+WildCard-down-|> Card
+
+Turn ...> Card
+Turn --> Mallet
+
+Turn *-down-> Goal
+Player ...> Goal
+
+@enduml
