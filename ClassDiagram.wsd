@@ -1,0 +1,43 @@
+@startuml Class diagram
+scale 1920*1080
+
+class Game{
+    - Player player
+
+    + main()
+    + resume()
+    + play()
+    + createPlayer()
+}
+
+class Turn{
+    - Player player
+
+    + Turn()
+    + playTurn()
+    + endGame()
+    + getWinner()
+}
+
+class Player{
+    - String name
+
+    + chooseCard()
+}
+
+enum CardType{
+    - CardNumber
+    - WildCard
+}
+
+Game *-down-> Turn
+Game *-down-> Player
+Game *-down-> Card
+Card *-down-> CardType
+
+Turn --> Player
+Turn ...> Card
+
+Turn *-down-> Goal
+Player ...> Goal
+@enduml
